@@ -1,0 +1,395 @@
+export component CalculatorWindow inherits Window {
+    width: 320px;
+    height: 460px;
+    title: "Rust Slint Calculator";
+
+    in property<string> display_text: "0";
+    callback on_button_pressed(button: string);
+
+    Rectangle {
+        background: #202020;
+        border-radius: 12px;
+        padding: 8px;
+
+        VerticalLayout {
+            spacing: 8px;
+
+            
+            Rectangle {
+                height: 80px;
+                background: #000;
+                border-radius: 8px;
+                padding-right: 12px;
+                padding-top: 8px;
+
+                Text {
+                    text: root.display_text;
+                    color: #00FF90;
+                    horizontal-alignment: right;
+                    vertical-alignment: bottom;
+                    font-size: 32px;
+                }
+            }
+
+            
+            HorizontalLayout {
+                spacing: 8px;
+                
+                calc-button := Rectangle {
+                    background: btn-touch1.has-hover ? #FF5555 : #FF3333;
+                    border-radius: 8px;
+                    
+                    btn-touch1 := TouchArea {
+                        clicked => { root.on_button_pressed("C"); }
+                    }
+                    
+                    Text {
+                        text: "C";
+                        color: #FFF;
+                        font-size: 20px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn_touch_back.has-hover ? #666 : #444;
+                    border-radius: 8px;
+                
+                    btn_touch_back := TouchArea {
+                        clicked => { root.on_button_pressed("⌫"); }
+                    }
+                
+                    Text {
+                        text: "←";
+                        color: #FFF;
+                        font-size: 22px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                
+                Rectangle {
+                    background: btn-touch3.has-hover ? #666 : #444;
+                    border-radius: 8px;
+                    
+                    btn-touch3 := TouchArea {
+                        clicked => { root.on_button_pressed("±"); }
+                    }
+                    
+                    Text {
+                        text: "±";
+                        color: #FFF;
+                        font-size: 20px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch4.has-hover ? #FF9933 : #FF7700;
+                    border-radius: 8px;
+                    
+                    btn-touch4 := TouchArea {
+                        clicked => { root.on_button_pressed("÷"); }
+                    }
+                    
+                    Text {
+                        text: "÷";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            // Hàng 2: 7, 8, 9, ×
+            HorizontalLayout {
+                spacing: 8px;
+                
+                Rectangle {
+                    background: btn-touch5.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch5 := TouchArea {
+                        clicked => { root.on_button_pressed("7"); }
+                    }
+                    
+                    Text {
+                        text: "7";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch6.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch6 := TouchArea {
+                        clicked => { root.on_button_pressed("8"); }
+                    }
+                    
+                    Text {
+                        text: "8";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch7.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch7 := TouchArea {
+                        clicked => { root.on_button_pressed("9"); }
+                    }
+                    
+                    Text {
+                        text: "9";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch8.has-hover ? #FF9933 : #FF7700;
+                    border-radius: 8px;
+                    
+                    btn-touch8 := TouchArea {
+                        clicked => { root.on_button_pressed("×"); }
+                    }
+                    
+                    Text {
+                        text: "×";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            // Hàng 3: 4, 5, 6, −
+            HorizontalLayout {
+                spacing: 8px;
+                
+                Rectangle {
+                    background: btn-touch9.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch9 := TouchArea {
+                        clicked => { root.on_button_pressed("4"); }
+                    }
+                    
+                    Text {
+                        text: "4";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch10.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch10 := TouchArea {
+                        clicked => { root.on_button_pressed("5"); }
+                    }
+                    
+                    Text {
+                        text: "5";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch11.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch11 := TouchArea {
+                        clicked => { root.on_button_pressed("6"); }
+                    }
+                    
+                    Text {
+                        text: "6";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch12.has-hover ? #FF9933 : #FF7700;
+                    border-radius: 8px;
+                    
+                    btn-touch12 := TouchArea {
+                        clicked => { root.on_button_pressed("−"); }
+                    }
+                    
+                    Text {
+                        text: "−";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            // Hàng 4: 1, 2, 3, +
+            HorizontalLayout {
+                spacing: 8px;
+                
+                Rectangle {
+                    background: btn-touch13.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch13 := TouchArea {
+                        clicked => { root.on_button_pressed("1"); }
+                    }
+                    
+                    Text {
+                        text: "1";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch14.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch14 := TouchArea {
+                        clicked => { root.on_button_pressed("2"); }
+                    }
+                    
+                    Text {
+                        text: "2";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch15.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    
+                    btn-touch15 := TouchArea {
+                        clicked => { root.on_button_pressed("3"); }
+                    }
+                    
+                    Text {
+                        text: "3";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+                
+                Rectangle {
+                    background: btn-touch16.has-hover ? #FF9933 : #FF7700;
+                    border-radius: 8px;
+                    
+                    btn-touch16 := TouchArea {
+                        clicked => { root.on_button_pressed("+"); }
+                    }
+                    
+                    Text {
+                        text: "+";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            // Hàng 5: 0 (rộng), ., =
+            HorizontalLayout {
+                spacing: 8px;
+            
+                // Nút 0 (chiếm 2 phần)
+                Rectangle {
+                    horizontal-stretch: 2;
+                    background: btn_touch_0.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    height: 60px;
+            
+                    btn_touch_0 := TouchArea {
+                        clicked => { root.on_button_pressed("0"); }
+                    }
+            
+                    Text {
+                        text: "0";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            
+                // Nút .
+                Rectangle {
+                    horizontal-stretch: 1;
+                    background: btn_touch_dot.has-hover ? #555 : #333;
+                    border-radius: 8px;
+                    height: 60px;
+            
+                    btn_touch_dot := TouchArea {
+                        clicked => { root.on_button_pressed("."); }
+                    }
+            
+                    Text {
+                        text: ".";
+                        color: #FFF;
+                        font-size: 24px;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            
+                // Nút =
+                Rectangle {
+                    horizontal-stretch: 1;
+                    background: btn_touch_eq.has-hover ? #00FFAA : #00FF90;
+                    border-radius: 8px;
+                    height: 60px;
+            
+                    btn_touch_eq := TouchArea {
+                        clicked => { root.on_button_pressed("="); }
+                    }
+            
+                    Text {
+                        text: "=";
+                        color: #000;
+                        font-size: 24px;
+                        font-weight: 700;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+            
+        }
+    }
+}

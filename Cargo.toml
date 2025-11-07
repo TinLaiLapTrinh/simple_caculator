@@ -1,0 +1,13 @@
+[package]
+name = "simple_caculator"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+
+[dependencies]
+slint = "1.12.1"
+meval = "0.2"
+
+
+[build-dependencies]
+slint-build = "1.12"
